@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameHub - PC & Free Games</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #6a11cb;
+            --accent-light: #2575fc;
+            --card-bg: #0f3460;
+            --text: #e6e6e6;
+            --text-light: #b0b0b0;
+            --free: #00b894;
+            --whatsapp: #25D366;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(15, 52, 96, 0.9);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--accent-light);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--text);
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: linear-gradient(to right, var(--accent), var(--accent-light));
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-btn {
+            background: var(--whatsapp);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Search Bar */
+        .search-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: var(--text);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: var(--accent-light);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 3rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin: 2rem 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--accent-light);
+        }
+
+        .free-badge {
+            background: var(--free);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        /* Games Grid */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .game-card.free::after {
+            content: 'FREE';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--free);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .game-info {
+            padding: 1.5rem;
+        }
+
+        .game-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .game-rating {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stars {
+            color: gold;
+        }
+
+        .game-genre {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .game-desc {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .game-details-btn {
+            background: linear-gradient(to right, var(--accent), var(--accent-light));
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .game-details-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+        }
+
+        /* Game Details Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            max-width: 900px;
+            margin: 2rem auto;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .modal-info {
+            padding: 2rem;
+        }
+
+        .modal-title {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-rating {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+
+        .modal-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .meta-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .meta-value {
+            font-weight: 600;
+        }
+
+        .modal-desc {
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .requirements {
+            margin-bottom: 2rem;
+        }
+
+        .requirements h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-light);
+        }
+
+        .req-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .req-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .req-card h4 {
+            color: var(--accent-light);
+            margin-bottom: 1rem;
+        }
+
+        .req-list {
+            list-style: none;
+        }
+
+        .req-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .req-list li:before {
+            content: "•";
+            color: var(--accent-light);
+            position: absolute;
+            left: 0;
+        }
+
+        .download-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .download-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--accent-light);
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            flex: 1;
+            min-width: 200px;
+            background: linear-gradient(to right, var(--accent), var(--accent-light));
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(106, 17, 203, 0.4);
+        }
+
+        .platform {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            margin-top: 3rem;
+        }
+
+        .whatsapp-footer {
+            background: var(--whatsapp);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-footer:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .nav-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content {
+                margin: 0;
+                border-radius: 0;
+                min-height: 100vh;
+            }
+            
+            .modal-image {
+                height: 250px;
+            }
+            
+            .download-buttons {
+                flex-direction: column;
+            }
+            
+            .download-btn {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <a href="#" class="logo">
+            <i class="fas fa-gamepad"></i>
+            GameHub
+        </a>
+        <div class="nav-buttons">
+            <button class="nav-btn active" data-filter="all">All Games</button>
+            <button class="nav-btn" data-filter="pc">PC Games</button>
+            <button class="nav-btn" data-filter="free">Free Games</button>
+            <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>
+                Join WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" class="search-box" placeholder="Search games by name or genre..." id="searchInput">
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- PC Games Section -->
+        <div id="pcSection">
+            <h2 class="section-title">
+                <i class="fas fa-desktop"></i>
+                PC Games
+            </h2>
+            <div class="games-grid" id="pcGamesGrid">
+                <!-- PC games will load here -->
+            </div>
+        </div>
+
+        <!-- Free Games Section -->
+        <div id="freeSection">
+            <h2 class="section-title">
+                <i class="fas fa-gift"></i>
+                Free Games
+                <span class="free-badge">FREE</span>
+            </h2>
+            <div class="games-grid" id="freeGamesGrid">
+                <!-- Free games will load here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Details Modal -->
+    <div class="modal" id="gameModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <!-- Modal content will load here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2023 GameHub. All rights reserved.</p>
+        <p>Join our WhatsApp channel for daily game updates!</p>
+        <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-footer">
+            <i class="fab fa-whatsapp"></i>
+            Join WhatsApp Channel
+        </a>
+    </div>
+
+    <script>
+        // ===============================
+        // GAMES DATABASE - EDIT THIS ONLY!
+        // ===============================
+        const gamesDatabase = [
+            // Add your games here - VERY SIMPLE FORMAT
+            {
+                id: 1,
+                name: "Cyberpunk 2077",
+                genre: "Action RPG",
+                category: "pc", // "pc" or "free"
+                rating: 4.5,
+                image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                description: "Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary.",
+                requirements: [
+                    "OS: Windows 7/8/10 64-bit",
+                    "Processor: Intel Core i5-3570K",
+                    "Memory: 8 GB RAM",
+                    "Graphics: NVIDIA GeForce GTX 780",
+                    "Storage: 70 GB available space"
+                ],
+                downloadLink: "https://example.com/download/cyberpunk",
+                size: "70 GB",
+                developer: "CD Projekt Red",
+                releaseDate: "2023-09-10"
+            },
+            {
+                id: 2,
+                name: "Among Us",
+                genre: "Social Deduction",
+                category: "free",
+                rating: 4.7,
+                image: "https://images.unsplash.com/photo-1618331833071-1c0c6ee3d19e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                description: "Play with 4-15 players online as you attempt to hold your spaceship together and return home, but beware of impostors!",
+                requirements: [
+                    "OS: Windows 7 SP1+",
+                    "Processor: SSE2 instruction set",
+                    "Memory: 1 GB RAM",
+                    "Storage: 250 MB available space"
+                ],
+                downloadLink: "https://example.com/download/amongus",
+                size: "250 MB",
+                developer: "Innersloth",
+                releaseDate: "2023-06-20"
+            },
+            {
+                id: 3,
+                name: "Valorant",
+                genre: "FPS",
+                category: "free",
+                rating: 4.6,
+                image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                description: "A 5v5 character-based tactical FPS where precise gunplay meets unique agent abilities.",
+                requirements: [
+                    "OS: Windows 7/8/10 64-bit",
+                    "Processor: Intel Core i3-4150",
+                    "Memory: 4 GB RAM",
+                    "Graphics: Intel HD 3000",
+                    "Storage: 8 GB available space"
+                ],
+                downloadLink: "https://example.com/download/valorant",
+                size: "8 GB",
+                developer: "Riot Games",
+                releaseDate: "2023-07-15"
+            },
+            {
+                id: 4,
+                name: "The Witcher 3",
+                genre: "RPG",
+                category: "pc",
+                rating: 4.9,
+                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                description: "A story-driven open world RPG set in a visually stunning fantasy universe full of meaningful choices.",
+                requirements: [
+                    "OS: Windows 7/8/10 64-bit",
+                    "Processor: Intel Core i5-2500K",
+                    "Memory: 6 GB RAM",
+                    "Graphics: NVIDIA GeForce GTX 660",
+                    "Storage: 35 GB available space"
+                ],
+                downloadLink: "https://example.com/download/witcher3",
+                size: "35 GB",
+                developer: "CD Projekt Red",
+                releaseDate: "2023-05-15"
+            },
+            {
+                id: 5,
+                name: "Fortnite",
+                genre: "Battle Royale",
+                category: "free",
+                rating: 4.4,
+                image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                description: "Battle Royale game with numerous game modes for every type of game player. Build, fight, survive!",
+                requirements: [
+                    "OS: Windows 7/8/10 64-bit",
+                    "Processor: Core i3 2.4GHz",
+                    "Memory: 4 GB RAM",
+                    "Graphics: Intel HD 4000",
+                    "Storage: 30 GB available space"
+                ],
+                downloadLink: "https://example.com/download/fortnite",
+                size: "30 GB",
+                developer: "Epic Games",
+                releaseDate: "2023-10-01"
+            },
+            {
+                id: 6,
+                name: "Call of Duty",
+                genre: "FPS",
+                category: "pc",
+                rating: 4.3,
+                image: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                description: "Experience the ultimate first-person shooter with intense combat and stunning graphics.",
+                requirements: [
+                    "OS: Windows 10 64-bit",
+                    "Processor: Intel Core i5-2500K",
+                    "Memory: 8 GB RAM",
+                    "Graphics: NVIDIA GeForce GTX 970",
+                    "Storage: 175 GB available space"
+                ],
+                downloadLink: "https://example.com/download/cod",
+                size: "175 GB",
+                developer: "Activision",
+                releaseDate: "2023-11-05"
+            }
+            // ADD MORE GAMES HERE - JUST COPY AND PASTE THE FORMAT!
+            // {
+            //     id: 7,
+            //     name: "Game Name",
+            //     genre: "Game Genre",
+            //     category: "pc", // OR "free"
+            //     rating: 4.0,
+            //     image: "https://image-url.com",
+            //     description: "Game description",
+            //     requirements: ["Requirement 1", "Requirement 2"],
+            //     downloadLink: "https://download-link.com",
+            //     size: "File Size",
+            //     developer: "Developer Name",
+            //     releaseDate: "YYYY-MM-DD"
+            // }
+        ];
+
+        // ===============================
+        // APPLICATION CODE - DON'T TOUCH!
+        // ===============================
+        const pcGamesGrid = document.getElementById('pcGamesGrid');
+        const freeGamesGrid = document.getElementById('freeGamesGrid');
+        const searchInput = document.getElementById('searchInput');
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const gameModal = document.getElementById('gameModal');
+        const closeModal = document.getElementById('closeModal');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadGames();
+            setupEventListeners();
+        });
+
+        // Load all games
+        function loadGames() {
+            // Filter PC games
+            const pcGames = gamesDatabase.filter(game => game.category === 'pc');
+            renderGames(pcGames, pcGamesGrid);
+            
+            // Filter free games
+            const freeGames = gamesDatabase.filter(game => game.category === 'free');
+            renderGames(freeGames, freeGamesGrid);
+        }
+
+        // Render games to grid
+        function renderGames(games, container) {
+            container.innerHTML = '';
+            
+            if (games.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-light);">
+                        <i class="fas fa-gamepad" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                        <h3>No games found</h3>
+                    </div>
+                `;
+                return;
+            }
+
+            games.forEach(game => {
+                const card = createGameCard(game);
+                container.appendChild(card);
+            });
+        }
+
+        // Create game card
+        function createGameCard(game) {
+            const card = document.createElement('div');
+            card.className = `game-card ${game.category === 'free' ? 'free' : ''}`;
+            card.dataset.id = game.id;
+            
+            const stars = getStars(game.rating);
+            
+            card.innerHTML = `
+                <img src="${game.image}" alt="${game.name}" class="game-image">
+                <div class="game-info">
+                    <div class="game-name">
+                        <span>${game.name}</span>
+                        <div class="game-rating">
+                            <span class="stars">${stars}</span>
+                            ${game.rating}
+                        </div>
+                    </div>
+                    <div class="game-genre">
+                        <i class="fas fa-tag"></i>
+                        ${game.genre}
+                    </div>
+                    <p class="game-desc">${game.description}</p>
+                    <button class="game-details-btn" data-id="${game.id}">
+                        <i class="fas fa-info-circle"></i> View Details & Download
+                    </button>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Navigation buttons
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Update active button
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    const filter = button.dataset.filter;
+                    filterGames(filter);
+                });
+            });
+
+            // Search
+            searchInput.addEventListener('input', () => {
+                const query = searchInput.value.toLowerCase();
+                filterGames('search', query);
+            });
+
+            // Modal close
+            closeModal.addEventListener('click', () => {
+                gameModal.style.display = 'none';
+            });
+
+            // Close modal when clicking outside
+            gameModal.addEventListener('click', (e) => {
+                if (e.target === gameModal) {
+                    gameModal.style.display = 'none';
+                }
+            });
+
+            // Game details button click (delegated)
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('game-details-btn') || e.target.closest('.game-details-btn')) {
+                    const btn = e.target.classList.contains('game-details-btn') ? e.target : e.target.closest('.game-details-btn');
+                    const gameId = parseInt(btn.dataset.id);
+                    showGameDetails(gameId);
+                }
+            });
+        }
+
+        // Filter games
+        function filterGames(filter, query = '') {
+            let filteredGames = [];
+            
+            switch(filter) {
+                case 'all':
+                    filteredGames = gamesDatabase;
+                    document.getElementById('pcSection').style.display = 'block';
+                    document.getElementById('freeSection').style.display = 'block';
+                    break;
+                    
+                case 'pc':
+                    filteredGames = gamesDatabase.filter(game => game.category === 'pc');
+                    document.getElementById('pcSection').style.display = 'block';
+                    document.getElementById('freeSection').style.display = 'none';
+                    break;
+                    
+                case 'free':
+                    filteredGames = gamesDatabase.filter(game => game.category === 'free');
+                    document.getElementById('pcSection').style.display = 'none';
+                    document.getElementById('freeSection').style.display = 'block';
+                    break;
+                    
+                case 'search':
+                    filteredGames = gamesDatabase.filter(game => 
+                        game.name.toLowerCase().includes(query) ||
+                        game.genre.toLowerCase().includes(query) ||
+                        game.description.toLowerCase().includes(query)
+                    );
+                    // Show all sections but filter content
+                    document.getElementById('pcSection').style.display = 'block';
+                    document.getElementById('freeSection').style.display = 'block';
+                    break;
+            }
+            
+            // Filter by search query if provided
+            if (query && filter !== 'search') {
+                filteredGames = filteredGames.filter(game => 
+                    game.name.toLowerCase().includes(query) ||
+                    game.genre.toLowerCase().includes(query)
+                );
+            }
+            
+            // Update displays
+            if (filter === 'search' || filter === 'all') {
+                const pcGames = filteredGames.filter(game => game.category === 'pc');
+                const freeGames = filteredGames.filter(game => game.category === 'free');
+                renderGames(pcGames, pcGamesGrid);
+                renderGames(freeGames, freeGamesGrid);
+            } else if (filter === 'pc') {
+                renderGames(filteredGames, pcGamesGrid);
+            } else if (filter === 'free') {
+                renderGames(filteredGames, freeGamesGrid);
+            }
+        }
+
+        // Show game details modal
+        function showGameDetails(gameId) {
+            const game = gamesDatabase.find(g => g.id === gameId);
+            if (!game) return;
+            
+            const stars = getStars(game.rating);
+            
+            const modalContent = `
+                <img src="${game.image}" alt="${game.name}" class="modal-image">
+                <div class="modal-info">
+                    <h2 class="modal-title">
+                        ${game.name}
+                        <div class="modal-rating">
+                            <span class="stars">${stars}</span> ${game.rating}
+                        </div>
+                    </h2>
+                    
+                    <div class="modal-meta">
+                        <div class="meta-item">
+                            <span class="meta-label">Genre:</span>
+                            <span class="meta-value">${game.genre}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Developer:</span>
+                            <span class="meta-value">${game.developer}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Release Date:</span>
+                            <span class="meta-value">${formatDate(game.releaseDate)}</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">File Size:</span>
+                            <span class="meta-value">${game.size}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-desc">
+                        <h3>Description</h3>
+                        <p>${game.description}</p>
+                    </div>
+                    
+                    <div class="requirements">
+                        <h3><i class="fas fa-laptop"></i> System Requirements</h3>
+                        <div class="req-grid">
+                            <div class="req-card">
+                                <h4>Minimum Requirements</h4>
+                                <ul class="req-list">
+                                    ${game.requirements.map(req => `<li>${req}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="download-section">
+                        <h3><i class="fas fa-download"></i> Download Game</h3>
+                        <div class="download-buttons">
+                            <a href="${game.downloadLink}" target="_blank" class="download-btn">
+                                <div class="platform">
+                                    <i class="fas fa-download"></i>
+                                    <span>Download ${game.name}</span>
+                                </div>
+                                <span>${game.size}</span>
+                            </a>
+                        </div>
+                        <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
+                            <i class="fas fa-exclamation-circle"></i>
+                            Make sure your system meets the requirements before downloading.
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            document.querySelector('.modal-content').innerHTML = `
+                <button class="close-modal" id="closeModal">&times;</button>
+                ${modalContent}
+            `;
+            
+            gameModal.style.display = 'block';
+            
+            // Re-attach close button event
+            document.getElementById('closeModal').addEventListener('click', () => {
+                gameModal.style.display = 'none';
+            });
+        }
+
+        // Generate stars
+        function getStars(rating) {
+            let stars = '';
+            const fullStars = Math.floor(rating);
+            const halfStar = rating % 1 >= 0.5;
+            
+            for (let i = 0; i < fullStars; i++) stars += '★';
+            if (halfStar) stars += '½';
+            for (let i = stars.length; i < 5; i++) stars += '☆';
+            
+            return stars;
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        }
+
+        // Update WhatsApp links
+        function updateWhatsAppLinks(phoneNumber) {
+            const whatsappLinks = document.querySelectorAll('.whatsapp-btn, .whatsapp-footer');
+            whatsappLinks.forEach(link => {
+                link.href = `https://wa.me/${phoneNumber}`;
+            });
+        }
+
+        // Initialize WhatsApp with your number
+        // Replace '1234567890' with your actual WhatsApp number (with country code, no +)
+        updateWhatsAppLinks('1234567890');
+    </script>
+</body>
+</html>
