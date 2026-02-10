@@ -566,7 +566,7 @@
 
     <!-- Footer -->
     <div class="footer">
-        <p>© 2026 Game Arena. All rights reserved.</p>
+        <p>© 2023 GameHub. All rights reserved.</p>
         <p>Join our WhatsApp channel for daily game updates!</p>
         <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-footer">
             <i class="fab fa-whatsapp"></i>
@@ -579,34 +579,34 @@
         // GAMES DATABASE - EDIT THIS ONLY!
         // ===============================
         const gamesDatabase = [
-            // Add your games here - VERY SIMPLE FORMAT
+            // Add your games here - USE LOCAL IMAGES FROM "images" FOLDER
             {
                 id: 1,
-                name: "Cyberpunk 2077",
-                genre: "Action RPG",
+                name: "Assassin's Creed 1",
+                genre: "Action Adventure,3D",
                 category: "pc", // "pc" or "free"
                 rating: 4.5,
-                image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-                description: "Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary.",
+                image: "images/Assassin Creed 1.jpg", // Local image in images folder
+                description: "",
                 requirements: [
                     "OS: Windows 7/8/10 64-bit",
-                    "Processor: Intel Core i5-3570K",
-                    "Memory: 8 GB RAM",
-                    "Graphics: NVIDIA GeForce GTX 780",
-                    "Storage: 70 GB available space"
+                    "Processor:  Dual core processor 2.6 GHz Intel Pentium D or AMD Athlon™ 64 X2 3800+ (Intel Core® 2 Duo 2.2 GHz or AMD Athlon 64 X2 4400+ or better recommended)",
+                    "Memory: 1 GB RAM",
+                    "Graphics: 256 MB DirectX® 10.0-compliant video card",
+                    "Storage: 8 GB available space"
                 ],
                 downloadLink: "https://example.com/download/cyberpunk",
-                size: "70 GB",
-                developer: "CD Projekt Red",
-                releaseDate: "2023-09-10"
+                size: "2.5 GB",
+                developer: "",
+                releaseDate: "2007"
             },
             {
                 id: 2,
-                name: "Among Us",
-                genre: "Social Deduction",
+                name: "Assassin's Creed 2",
+                genre: "Action, Adventure",
                 category: "free",
                 rating: 4.7,
-                image: "https://images.unsplash.com/photo-1618331833071-1c0c6ee3d19e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                image: "images/Assassin Creed 2.jpg", // Local image in images folder
                 description: "Play with 4-15 players online as you attempt to hold your spaceship together and return home, but beware of impostors!",
                 requirements: [
                     "OS: Windows 7 SP1+",
@@ -625,7 +625,7 @@
                 genre: "FPS",
                 category: "free",
                 rating: 4.6,
-                image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                image: "images/valorant.jpg", // Local image in images folder
                 description: "A 5v5 character-based tactical FPS where precise gunplay meets unique agent abilities.",
                 requirements: [
                     "OS: Windows 7/8/10 64-bit",
@@ -645,7 +645,7 @@
                 genre: "RPG",
                 category: "pc",
                 rating: 4.9,
-                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                image: "images/witcher3.jpg", // Local image in images folder
                 description: "A story-driven open world RPG set in a visually stunning fantasy universe full of meaningful choices.",
                 requirements: [
                     "OS: Windows 7/8/10 64-bit",
@@ -665,7 +665,7 @@
                 genre: "Battle Royale",
                 category: "free",
                 rating: 4.4,
-                image: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                image: "images/fortnite.PNG", // Local image in images folder
                 description: "Battle Royale game with numerous game modes for every type of game player. Build, fight, survive!",
                 requirements: [
                     "OS: Windows 7/8/10 64-bit",
@@ -685,7 +685,7 @@
                 genre: "FPS",
                 category: "pc",
                 rating: 4.3,
-                image: "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+                image: "images/cod.jpg", // Local image in images folder
                 description: "Experience the ultimate first-person shooter with intense combat and stunning graphics.",
                 requirements: [
                     "OS: Windows 10 64-bit",
@@ -706,7 +706,7 @@
             //     genre: "Game Genre",
             //     category: "pc", // OR "free"
             //     rating: 4.0,
-            //     image: "https://image-url.com",
+            //     image: "images/your-image.jpg", // PUT YOUR IMAGE IN IMAGES FOLDER
             //     description: "Game description",
             //     requirements: ["Requirement 1", "Requirement 2"],
             //     downloadLink: "https://download-link.com",
@@ -772,7 +772,7 @@
             const stars = getStars(game.rating);
             
             card.innerHTML = `
-                <img src="${game.image}" alt="${game.name}" class="game-image">
+                <img src="${game.image}" alt="${game.name}" class="game-image" onerror="this.src='https://via.placeholder.com/300x200/0f3460/e6e6e6?text=Game+Image'">
                 <div class="game-info">
                     <div class="game-name">
                         <span>${game.name}</span>
@@ -901,7 +901,7 @@
             const stars = getStars(game.rating);
             
             const modalContent = `
-                <img src="${game.image}" alt="${game.name}" class="modal-image">
+                <img src="${game.image}" alt="${game.name}" class="modal-image" onerror="this.src='https://via.placeholder.com/900x400/0f3460/e6e6e6?text=Game+Image'">
                 <div class="modal-info">
                     <h2 class="modal-title">
                         ${game.name}
