@@ -69,23 +69,24 @@
             },
             {
                 id: 4,
-                name: "The Witcher 3",
-                genre: "RPG",
+                name: "Grand Theft Auto V",
+                genre: "Action,shooting",
                 category: "pc",
-                rating: 4.9,
-                image: "images/witcher3.jpg", // Local image in images folder
-                description: "A story-driven open world RPG set in a visually stunning fantasy universe full of meaningful choices.",
+                rating: 10,
+                image: "images/GTA5.jpg", // Local image in images folder
+                description: "",
                 requirements: [
-                    "OS: Windows 7/8/10 64-bit",
-                    "Processor: Intel Core i5-2500K",
-                    "Memory: 6 GB RAM",
-                    "Graphics: NVIDIA GeForce GTX 660",
-                    "Storage: 35 GB available space"
+                    "OS: Windows 8.1 64 Bit, Windows 8 64 Bit, Windows 7 64 Bit Service Pack 1, Windows Vista 64 Bit Service Pack 2* (*NVIDIA video card recommended if running Vista OS)",
+                    "Processor:  Intel Core 2 Quad CPU Q6600 @ 2.40GHz (4 CPUs) / AMD Phenom 9850 Quad-Core Processor (4 CPUs) @ 2.5GHz - actually works on dual-core CPUs as well",
+                    "Memory: 4 GB RAM",
+                    "Graphics: NVIDIA 9800 GT 1GB / AMD HD 4870 1GB (DX 10, 10.1, 11)",
+                    "DirectX: 10",
+                    "Storage: 90 available space"
                 ],
-                downloadLink: "https://example.com/download/witcher3",
-                size: "35 GB",
-                developer: "CD Projekt Red",
-                releaseDate: "2023-05-15"
+                downloadLink: "",
+                size: " 40 GB",
+                developer: "Rockstar North, Rockstar San Diego, Rockstar Leeds, Rockstar Toronto, Rockstar New England, Rockstar London",
+                releaseDate: "2015-04-14"
             },
             {
                 id: 5,
