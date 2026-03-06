@@ -38,32 +38,34 @@
 "Graphics: 256 MB DirectX® 9.0–compliant card with Shader Model 3.0 or higher (see supported list)",
 "DirectX®: DirectX 9.0",
 "Hard Drive: 8 GB free space",
-"Sound: DirectX 9.0 –compliant sound card,"
+"Sound: DirectX 9.0 –compliant sound card"
                 ],
-                downloadLink: "https://example.com/download/amongus",
-                size: "250 MB",
-                developer: "Innersloth",
-                releaseDate: "2023-06-20"
+                downloadLink: "",
+                size: " 8 GB",
+                developer: "",
+                releaseDate: "2010"
             },
             {
                 id: 3,
-                name: "Valorant",
-                genre: "FPS",
-                category: "free",
-                rating: 4.6,
-                image: "images/valorant.jpg", // Local image in images folder
-                description: "A 5v5 character-based tactical FPS where precise gunplay meets unique agent abilities.",
+                name: "Assassin's Creed Brotherhood",
+                genre: "Action,Adventure",
+                category: "pc",
+                rating: 8,
+                image: "images/Assassin Creed Brotherhood.jpg", // Local image in images folder
+                description: "",
                 requirements: [
-                    "OS: Windows 7/8/10 64-bit",
-                    "Processor: Intel Core i3-4150",
-                    "Memory: 4 GB RAM",
-                    "Graphics: Intel HD 3000",
-                    "Storage: 8 GB available space"
+                    "OS: Windows® XP (32-64 bits) /Windows Vista®(32-64 bits)",
+"Processor: Intel Core® 2 Duo 1.8 GHZ or AMD Athlon X2 64 2.4GHZ",
+"Memory: 1.5 GB Windows® XP / 2 GB Windows Vista® - Windows 7®",
+"Graphics: 256 MB DirectX® 9.0–compliant card with Shader Model 3.0 or higher (see supported list*)",
+"DirectX®: 9.0",
+"Hard Drive: 8 GB",
+"Sound: DirectX 9.0 –compliant sound card"
                 ],
-                downloadLink: "https://example.com/download/valorant",
-                size: "8 GB",
-                developer: "Riot Games",
-                releaseDate: "2023-07-15"
+                downloadLink: "",
+                size: "6.5GB",
+                developer: "",
+                releaseDate: "2010-07-15"
             },
             {
                 id: 4,
