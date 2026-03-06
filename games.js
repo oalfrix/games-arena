@@ -129,7 +129,30 @@
                 size: "17 GB",
                 developer: "Ubisoft Montreal",
                 releaseDate: "2012-11-05"
+            },
+            {
+                id: 7,
+                name: "Assassin's Creed Liberation",
+                 genre: "Action",
+                 category: "pc",
+                 rating: 5.0,
+                 image: "images/Assassin Creed Liberation.jpg",
+                 description: "",
+                 requirements: [
+                         "Operating system: Windows Vista SP2, Windows 7 SP1, Windows 8 / 8.1 (both 32 / 64bit versions)",
+"Processor: Intel Core i3 2105 @ 3.1 GHz or AMD Phenom 2 X4 955 @ 3.2GHz",
+"Memory: 2 GB",
+"Graphics Card: Nvidia GeForce 8800GT or AMD Radeon HD4870 (512MB VRAM u0026 Shader Model 4.0)",
+"Sound Card: Sound device compatible with DirectX® 9.0",
+"Free space on hard drive: 3 GB"
+                                  ],
+                 downloadLink: "",
+                 size: "File Size",
+                 developer: "3 GB",
+                 releaseDate: "2014"
             }
+
+
             // ADD MORE GAMES HERE - JUST COPY AND PASTE THE FORMAT!
             // {
             //     id: 7,
