@@ -90,57 +90,61 @@
             },
             {
                 id: 5,
-                name: "Fortnite",
-                genre: "Battle Royale",
-                category: "free",
-                rating: 4.4,
-                image: "images/fortnite.PNG", // Local image in images folder
-                description: "Battle Royale game with numerous game modes for every type of game player. Build, fight, survive!",
+                name: "Assassin's Creed Revelations",
+                genre: "Action",
+                category: "pc",
+                rating: 8.4,
+                image: "images/Assassin Creed Revelations.jpg", // Local image in images folder
+                description: "",
                 requirements: [
-                    "OS: Windows 7/8/10 64-bit",
-                    "Processor: Core i3 2.4GHz",
-                    "Memory: 4 GB RAM",
-                    "Graphics: Intel HD 4000",
-                    "Storage: 30 GB available space"
+                    "OS: Windows XP / Windows Vista / Windows 7",
+"CPU: Intel Core 2 Duo 2.8 GHz or AMD Athlon X2 Dual-Core 5200+",
+"RAM: 2 GB",
+"Video card: Nvidia Geforce 9800 или Radeon HD 4750",
+"Hard disk space: 10 GB"
                 ],
-                downloadLink: "https://example.com/download/fortnite",
-                size: "30 GB",
-                developer: "Epic Games",
-                releaseDate: "2023-10-01"
+                downloadLink: "",
+                size: "10 GB",
+                developer: " Ubisoft Montreal",
+                releaseDate: "11-10-01"
             },
             {
                 id: 6,
-                name: "Call of Duty",
+                name: "Assassin's Creed III",
                 genre: "FPS",
                 category: "pc",
-                rating: 4.3,
-                image: "images/cod.jpg", // Local image in images folder
-                description: "Experience the ultimate first-person shooter with intense combat and stunning graphics.",
+                rating: 8.3,
+                image: "images/Assassin Creed 3.jpg", // Local image in images folder
+                description: "",
                 requirements: [
-                    "OS: Windows 10 64-bit",
-                    "Processor: Intel Core i5-2500K",
-                    "Memory: 8 GB RAM",
-                    "Graphics: NVIDIA GeForce GTX 970",
-                    "Storage: 175 GB available space"
+                    "Supported OS: Windows Vista (SP2) / Windows 7 (SP1) / Windows 8",
+"Processor: 2.66 GHz Intel Core2 Duo E6700 or 3.00 GHz AMD Athlon 64 X2 6000+ or better recommended",
+"RAM: 2 GB (4 GB recommended)",
+"Video Card: 512 MB DirectX 9.0c-compliant with Shader Model 4.0 or higher (see supported list)",
+"Sound Card: DirectX 9.0c-compliant (5.1 surround sound recommended)",
+"DVD-ROM: Dual-layer drive",
+"Hard Drive Space: 17 GB"
                 ],
-                downloadLink: "https://example.com/download/cod",
-                size: "175 GB",
-                developer: "Activision",
-                releaseDate: "2023-11-05"
+                downloadLink: "",
+                size: "17 GB",
+                developer: "Ubisoft Montreal",
+                releaseDate: "2012-11-05"
             }
             // ADD MORE GAMES HERE - JUST COPY AND PASTE THE FORMAT!
             // {
             //     id: 7,
-            //     name: "Game Name",
-            //     genre: "Game Genre",
+            //     name: "",
+            //     genre: "",
             //     category: "pc", // OR "free"
             //     rating: 4.0,
-            //     image: "images/your-image.jpg", // PUT YOUR IMAGE IN IMAGES FOLDER
-            //     description: "Game description",
-            //     requirements: ["Requirement 1", "Requirement 2"],
-            //     downloadLink: "https://download-link.com",
+            //     image: "images/",
+            //     description: "",
+            //     requirements: [
+            //             
+            //                      ],
+            //     downloadLink: "",
             //     size: "File Size",
-            //     developer: "Developer Name",
-            //     releaseDate: "YYYY-MM-DD"
+            //     developer: "",
+            //     releaseDate: ""
             // }
         ];
