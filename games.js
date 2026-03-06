@@ -8,7 +8,7 @@
                 name: "Assassin's Creed 1",
                 genre: "Action Adventure,3D",
                 category: "pc", // "pc" or "free"
-                rating: 4.5,
+                rating: 7.5,
                 image: "images/Assassin Creed 1.jpg", // Local image in images folder
                 description: "",
                 requirements: [
@@ -18,7 +18,7 @@
                     "Graphics: 256 MB DirectX® 10.0-compliant video card",
                     "Storage: 8 GB available space"
                 ],
-                downloadLink: "https://example.com/download/cyberpunk",
+                downloadLink: "",
                 size: "2.5 GB",
                 developer: "",
                 releaseDate: "2007"
@@ -27,15 +27,18 @@
                 id: 2,
                 name: "Assassin's Creed 2",
                 genre: "Action, Adventure",
-                category: "free",
-                rating: 4.7,
+                category: "pc",
+                rating: 7.7,
                 image: "images/Assassin Creed 2.jpg", // Local image in images folder
-                description: "Play with 4-15 players online as you attempt to hold your spaceship together and return home, but beware of impostors!",
+                description: "",
                 requirements: [
-                    "OS: Windows 7 SP1+",
-                    "Processor: SSE2 instruction set",
-                    "Memory: 1 GB RAM",
-                    "Storage: 250 MB available space"
+                   "OS: Windows® XP (32-64 bits) /Windows Vista®(32-64 bits)"
+"Processor: Intel Core® 2 Duo 1.8 GHZ or AMD Athlon X2 64 2.4GHZ"
+"Memory: 1.5 GB Windows® XP / 2 GB Windows Vista® - Windows 7®"
+"Graphics: 256 MB DirectX® 9.0–compliant card with Shader Model 3.0 or higher (see supported list)"
+"DirectX®: DirectX 9.0"
+"Hard Drive: 8 GB free space"
+"Sound: DirectX 9.0 –compliant sound card"
                 ],
                 downloadLink: "https://example.com/download/amongus",
                 size: "250 MB",
