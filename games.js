@@ -32,13 +32,10 @@
                 image: "images/Assassin Creed 2.jpg", // Local image in images folder
                 description: "",
                 requirements: [
-                   "OS: Windows® XP (32-64 bits) /Windows Vista®(32-64 bits)"
-"Processor: Intel Core® 2 Duo 1.8 GHZ or AMD Athlon X2 64 2.4GHZ"
-"Memory: 1.5 GB Windows® XP / 2 GB Windows Vista® - Windows 7®"
-"Graphics: 256 MB DirectX® 9.0–compliant card with Shader Model 3.0 or higher (see supported list)"
-"DirectX®: DirectX 9.0"
-"Hard Drive: 8 GB free space"
-"Sound: DirectX 9.0 –compliant sound card"
+                    "OS: Windows® XP (32-64 bits) /Windows Vista®(32-64 bits)",
+                    "Processor: ",
+                    "Memory: ",
+                    "Storage: y"
                 ],
                 downloadLink: "https://example.com/download/amongus",
                 size: "250 MB",
