@@ -172,17 +172,22 @@
             },
             {
                 id: 9,
-                name: "",
-                genre: "",
+                name: "Assassin's Creed 3 Remastered",
+                genre: "Action, Adventure",
                 category: "pc",
-                rating: 4.0,
-                image: "images/",
+                rating: 7.0,
+                image: "images/Assassin Creed 3 Remastered.jpg",
                 description: "",
-                requirements: [""],
+                requirements: [
+                    "Operating System: Windows 7 SP1, Windows 8.1, Windows 10 (64-bit versions only)",
+"Processor: Intel Core i5 2400 @ 3.1 GHz, AMD FX 6350 @ 3.9 GHz",
+"RAM: 8GB",
+"Video Card: Nvidia GeForce GTX 660, AMD Radeon R9 270X (2GB VRAM with Shader Model 5.0)"
+                ],
                 downloadLink: "",
-                size: "",
-                developer: "",
-                releaseDate: ""
+                size: " 43 GB",
+                developer: "Ubisoft",
+                releaseDate: "29th March 2019"
             },
             {
                 id: 10,
