@@ -187,7 +187,7 @@
                 downloadLink: "",
                 size: " 43 GB",
                 developer: "Ubisoft",
-                releaseDate: "29th March 2019"
+                releaseDate: "March 29th 2019"
             },
             {
                 id: 10,
