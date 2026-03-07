@@ -191,17 +191,23 @@
             },
             {
                 id: 10,
-                name: "",
-                genre: "",
+                name: "Assassin's Creed: Odyssey",
+                genre: "Action, Adventure",
                 category: "pc",
-                rating: 4.0,
-                image: "images/",
+                rating: 9.0,
+                image: "images/Assassin Creed Odyssey.jpg",
                 description: "",
-                requirements: [""],
+                requirements: [
+                    "Operating System: Windows 7 SP1, Windows 8.1, Windows 10 (64bit versions only)", 
+"Processor: AMD FX 6300 @ 3.8 GHz, Ryzen 3 - 1200, Intel Core i5 2400 @ 3.1 GHz", 
+"RAM: 8 GB", 
+"Video Card: AMD Radeon R9 285, NVIDIA GeForce GTX 660 (2GB VRAM with Shader Model 5.0)",
+"DirectX: 11", 
+"HDD Space: 63 GB"],
                 downloadLink: "",
-                size: "",
-                developer: "",
-                releaseDate: ""
+                size: "63 GB",
+                developer: "Ubisoft",
+                releaseDate: "2018"
             },
             {
                 id: 11,
