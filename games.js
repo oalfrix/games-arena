@@ -459,7 +459,7 @@
                 name: "Forza Horizon 5",
                 genre: "Arcade, Racing, Open world, First-person, Third-person, Cars, 3D",
                 category: "pc",
-                rating: 100,
+                rating: 10,
                 image: "images/Forza Horizon 5 (2021).jpg",
                 description: "",
                 requirements: ["Requires 64-bit processor and operating system",
