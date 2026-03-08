@@ -239,16 +239,16 @@
             },
             {
                 id: 14,
-                name: "",
-                genre: "",
+                name: "Assassin's Creed Syndicate",
+                genre: "Action, Adventure",
                 category: "pc",
                 rating: 4.0,
-                image: "images/",
+                image: "images/Assassin Creed Syndicate.jpg",
                 description: "",
                 requirements: [""],
                 downloadLink: "",
                 size: "",
-                developer: "",
+                developer: "Ubisoft",
                 releaseDate: ""
             },
             {
