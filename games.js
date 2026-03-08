@@ -229,7 +229,7 @@
                 genre: "Action, Adventure",
                 category: "pc",
                 rating: 4.0,
-                image: "Assassin Creed Rogue.jpg",
+                image: "images/Assassin Creed Rogue.jpg",
                 description: "",
                 requirements: [""],
                 downloadLink: "",
@@ -238,7 +238,7 @@
                 releaseDate: ""
             },
             {
-                id: 11,
+                id: 14,
                 name: "",
                 genre: "",
                 category: "pc",
