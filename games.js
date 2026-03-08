@@ -294,12 +294,12 @@
                 releaseDate: ""
             },
             {
-                id: 11,
-                name: "",
+                id: 18,
+                name: "Watch Dogs 2",
                 genre: "",
                 category: "pc",
                 rating: 4.0,
-                image: "images/",
+                image: "images/watch dogs 2.jpg",
                 description: "",
                 requirements: [""],
                 downloadLink: "",
@@ -308,12 +308,12 @@
                 releaseDate: ""
             },
             {
-                id: 11,
-                name: "",
+                id: 19,
+                name: "Watch Dogs",
                 genre: "",
                 category: "pc",
                 rating: 4.0,
-                image: "images/",
+                image: "images/watch dogs 2014.jpg",
                 description: "",
                 requirements: [""],
                 downloadLink: "",
@@ -322,12 +322,12 @@
                 releaseDate: ""
             },
             {
-                id: 11,
-                name: "",
+                id: 20,
+                name: "Watch Dogs Legion",
                 genre: "",
                 category: "pc",
                 rating: 4.0,
-                image: "images/",
+                image: "images/watch dogs legion 2018.jpg",
                 description: "",
                 requirements: [""],
                 downloadLink: "",
