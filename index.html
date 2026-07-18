@@ -641,10 +641,12 @@
 
         // Load all games
         function loadGames() {
-            // Filter PC games
-            const pcGames = gamesDatabase.filter(game => game.category === 'pc');
-            renderGames(pcGames, pcGamesGrid);
-            
+            const featuredGames = gamesDatabase
+                .filter(game => game.category === "pc")
+                .slice(0, 6);
+
+            renderGames(featuredGames, pcGamesGrid);
+                        
             // Filter free games
             const freeGames = gamesDatabase.filter(game => game.category === 'free');
             renderGames(freeGames, freeGamesGrid);
