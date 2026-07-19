@@ -8,6 +8,7 @@
             .nav-buttons {
                 flex-wrap: wrap;
                 justify-content: center;
+                display: none;
             }
             
             .games-grid {
