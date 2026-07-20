@@ -143,5 +143,20 @@
   transform: translateY(-7px) translateY(50%) rotate(135deg);
 }
     </style>
+
+    <script>
+        $(function() {
+  
+  $(".menu-link").click(function(e) {
+    e.preventDefault();
+    
+    $(".menu-overlay").toggleClass("open");
+    $(".menu").toggleClass("open");
+
+  });
+	
+});
+
+    </script>
 </body>
 </html>
