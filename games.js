@@ -615,3 +615,151 @@
             //     releaseDate: ""
             // }
         ];
+
+
+        <script>
+    let selectedGame = null;
+
+    const paymentModal = document.getElementById("paymentModal");
+    const closePaymentModal =
+        document.getElementById("closePaymentModal");
+
+    const paymentGameName =
+        document.getElementById("paymentGameName");
+
+    const paymentAmount =
+        document.getElementById("paymentAmount");
+
+    const mpesaPhone =
+        document.getElementById("mpesaPhone");
+
+    const payMpesaBtn =
+        document.getElementById("payMpesaBtn");
+
+    const paymentMessage =
+        document.getElementById("paymentMessage");
+
+
+    function openPaymentModal(game) {
+
+        selectedGame = game;
+
+        paymentGameName.textContent =
+            game.name;
+
+        // For testing we'll charge KSh 1
+        paymentAmount.textContent = "1";
+
+        mpesaPhone.value = "";
+
+        paymentMessage.textContent = "";
+
+        paymentModal.classList.add("show");
+    }
+
+
+    function closePayment() {
+
+        paymentModal.classList.remove("show");
+
+        selectedGame = null;
+    }
+
+
+    closePaymentModal.addEventListener(
+        "click",
+        closePayment
+    );
+
+
+    paymentModal.addEventListener(
+        "click",
+        function(event) {
+
+            if (event.target === paymentModal) {
+                closePayment();
+            }
+
+        }
+    );
+
+
+    payMpesaBtn.addEventListener(
+        "click",
+        async function() {
+
+            const phone =
+                mpesaPhone.value.trim();
+
+            if (!/^2547\d{8}$/.test(phone)) {
+
+                paymentMessage.textContent =
+                    "Enter a valid number like 254712345678.";
+
+                return;
+            }
+
+
+            payMpesaBtn.disabled = true;
+
+            paymentMessage.textContent =
+                "Sending M-Pesa payment request...";
+
+
+            try {
+
+                const { data, error } =
+                    await supabaseClient.functions.invoke(
+                        "mpesa-stk-push",
+                        {
+                            body: {
+                                phoneNumber: phone,
+                                amount: 1
+                            }
+                        }
+                    );
+
+
+                if (error) {
+                    throw error;
+                }
+
+
+                console.log(
+                    "M-Pesa response:",
+                    data
+                );
+
+
+                if (!data || !data.success) {
+
+                    throw new Error(
+                        data?.message ||
+                        "Payment request failed."
+                    );
+                }
+
+
+                paymentMessage.textContent =
+                    "STK Push sent! Check your phone and enter your M-Pesa PIN.";
+
+            } catch (error) {
+
+                console.error(
+                    "Payment error:",
+                    error
+                );
+
+                paymentMessage.textContent =
+                    error.message ||
+                    "Something went wrong.";
+
+            } finally {
+
+                payMpesaBtn.disabled = false;
+
+            }
+
+        }
+    );
+</script>

@@ -91,7 +91,18 @@
         </a>
     </div>
 
-    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+    const SUPABASE_URL = "https://pjxzhtaqbrtiykybcajc.supabase.co";
+
+    const SUPABASE_ANON_KEY = "sb_publishable_Din2jt7KgY5UtFuwNbBUGw_y4wfbIlD";
+
+    const supabaseClient = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+</script>
     <script src="games.js"></script>
     <script>
         
@@ -207,13 +218,44 @@
             });
 
             // Game details button click (delegated)
-            document.addEventListener('click', (e) => {
-                if (e.target.classList.contains('game-details-btn') || e.target.closest('.game-details-btn')) {
-                    const btn = e.target.classList.contains('game-details-btn') ? e.target : e.target.closest('.game-details-btn');
-                    const gameId = parseInt(btn.dataset.id);
-                    showGameDetails(gameId);
-                }
-            });
+           // Game details button click
+document.addEventListener('click', (e) => {
+    if (
+        e.target.classList.contains('game-details-btn') ||
+        e.target.closest('.game-details-btn')
+    ) {
+        const btn =
+            e.target.classList.contains('game-details-btn')
+                ? e.target
+                : e.target.closest('.game-details-btn');
+
+        const gameId = parseInt(btn.dataset.id);
+
+        showGameDetails(gameId);
+    }
+});
+
+
+// M-Pesa payment/download button
+document.addEventListener('click', (e) => {
+
+    const downloadBtn =
+        e.target.closest('.payment-download-btn');
+
+    if (!downloadBtn) return;
+
+    const gameId =
+        parseInt(downloadBtn.dataset.gameId);
+
+    const game =
+        gamesDatabase.find(
+            game => game.id === gameId
+        );
+
+    if (!game) return;
+
+    openPaymentModal(game);
+});
         }
 
         // Filter games
@@ -328,13 +370,17 @@
                     <div class="download-section">
                         <h3><i class="fas fa-download"></i> Download Game</h3>
                         <div class="download-buttons">
-                            <a href="${game.downloadLink}" target="_blank" class="download-btn">
-                                <div class="platform">
-                                    <i class="fas fa-download"></i>
-                                    <span>Download ${game.name}</span>
-                                </div>
-                                <span>${game.size}</span>
-                            </a>
+                            <button
+    class="download-btn payment-download-btn"
+    data-game-id="${game.id}"
+>
+    <div class="platform">
+        <i class="fas fa-lock"></i>
+        <span>Pay & Download ${game.name}</span>
+    </div>
+
+    <span>KSh 1</span>
+</button>
                         </div>
                         <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.9rem;">
                             <i class="fas fa-exclamation-circle"></i>
@@ -397,5 +443,46 @@
         game.downloadLink
         );
     </script>
+
+    <!-- M-Pesa Payment Modal -->
+<div id="paymentModal" class="payment-modal">
+    <div class="payment-box">
+
+        <button id="closePaymentModal" class="payment-close">
+            &times;
+        </button>
+
+        <div class="payment-icon">
+            <i class="fas fa-mobile-screen-button"></i>
+        </div>
+
+        <h2>Pay to Download</h2>
+
+        <p id="paymentGameName"></p>
+
+        <div class="payment-price">
+            KSh <span id="paymentAmount">1</span>
+        </div>
+
+        <label for="mpesaPhone">
+            M-Pesa Phone Number
+        </label>
+
+        <input
+            type="tel"
+            id="mpesaPhone"
+            placeholder="2547XXXXXXXX"
+            maxlength="12"
+        >
+
+        <button id="payMpesaBtn" class="pay-mpesa-btn">
+            <i class="fas fa-mobile-screen-button"></i>
+            Pay with M-Pesa
+        </button>
+
+        <div id="paymentMessage"></div>
+
+    </div>
+</div>
 </body>
 </html>

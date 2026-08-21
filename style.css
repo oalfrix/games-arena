@@ -507,3 +507,105 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
         }
+
+
+        /* =========================
+   M-PESA PAYMENT MODAL
+========================= */
+
+.payment-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.payment-modal.show {
+    display: flex;
+}
+
+.payment-box {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    background: var(--card-bg, #16213e);
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.payment-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.payment-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.payment-box h2 {
+    margin-bottom: 8px;
+}
+
+#paymentGameName {
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.payment-price {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.payment-box label {
+    display: block;
+    text-align: left;
+    margin-bottom: 7px;
+}
+
+#mpesaPhone {
+    width: 100%;
+    padding: 13px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #0f172a;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.pay-mpesa-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    background: #16a34a;
+    color: white;
+}
+
+.pay-mpesa-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#paymentMessage {
+    margin-top: 15px;
+    font-size: 14px;
+}
